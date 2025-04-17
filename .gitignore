@@ -1,0 +1,6 @@
+.vs
+TestResults
+WindscribeNet/bin/*
+WindscribeNet/obj/*
+WindscribeNetTests/bin/*
+WindscribeNetTests/obj/*
