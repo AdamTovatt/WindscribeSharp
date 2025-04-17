@@ -1,5 +1,5 @@
-using Windscribe.CommandRunners;
-using Windscribe.Commands;
+using WindscribeNet.CommandRunners;
+using WindscribeNet.Commands;
 
 namespace WindscribeTests
 {

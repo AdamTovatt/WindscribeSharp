@@ -2,11 +2,11 @@
 
 namespace WindscribeNet.Commands.ResponseParsing
 {
-    internal class ActiveStateConverter : IResponseValueConverter
+    public class InternetConnectivityConverter : IResponseValueConverter
     {
         public object Convert(string value)
         {
-            return EnumConverter.FromString<ActiveState>(value);
+            return EnumConverter.FromString<InternetConnectivity>(value);
         }
     }
 }

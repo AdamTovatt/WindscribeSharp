@@ -1,4 +1,4 @@
-﻿namespace Windscribe
+﻿namespace WindscribeNet
 {
     /// <summary>
     /// A static class that holds default paths for the Windscribe cli that is used to control Windscribe.

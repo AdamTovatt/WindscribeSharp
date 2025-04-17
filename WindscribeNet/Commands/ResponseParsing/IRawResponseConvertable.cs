@@ -1,4 +1,4 @@
-﻿namespace Windscribe.Commands.ResponseParsing
+﻿namespace WindscribeNet.Commands.ResponseParsing
 {
     internal interface IRawResponseConvertable<T>
     {

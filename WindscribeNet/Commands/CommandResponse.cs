@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Windscribe.Commands
+namespace WindscribeNet.Commands
 {
     /// <summary>
     /// Represents a response from a command to Windscribe.

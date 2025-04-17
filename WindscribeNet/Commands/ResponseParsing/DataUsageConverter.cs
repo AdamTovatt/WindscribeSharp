@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Windscribe.Commands.ResponseParsing
+namespace WindscribeNet.Commands.ResponseParsing
 {
     public class DataUsageConverter : IResponseValueConverter
     {

@@ -1,4 +1,4 @@
-﻿using Windscribe.Commands;
+﻿using WindscribeNet.Commands;
 
 namespace WindscribeTests
 {

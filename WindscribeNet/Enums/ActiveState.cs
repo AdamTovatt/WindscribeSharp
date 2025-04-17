@@ -1,4 +1,4 @@
-﻿namespace Windscribe.Enums
+﻿namespace WindscribeNet.Enums
 {
     public enum ActiveState
     {

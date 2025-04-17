@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
-using Windscribe.Commands;
-using Windscribe.Commands.ResponseParsing;
+using WindscribeNet.Commands;
+using WindscribeNet.Commands.ResponseParsing;
 
-namespace Windscribe.CommandRunners
+namespace WindscribeNet.CommandRunners
 {
     internal class WindowsCommandRunner : ICommandRunner
     {

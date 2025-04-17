@@ -1,4 +1,4 @@
-﻿namespace Windscribe.Commands
+﻿namespace WindscribeNet.Commands
 {
     internal abstract class Command
     {
