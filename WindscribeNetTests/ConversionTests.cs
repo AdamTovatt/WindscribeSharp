@@ -1,9 +1,9 @@
 ﻿using WindscribeNet.Enums;
 
-namespace WindscribeTests
+namespace WindscribeNetTests
 {
     [TestClass]
-    public class EnumTests
+    public class ConversionTests
     {
         [TestMethod]
         public void ConvertActiveState()

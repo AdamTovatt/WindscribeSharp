@@ -12,8 +12,15 @@
         public static string CliApplicationName = "windscribe-cli";
 
         /// <summary>
-        /// The cli application location on Windows. Should only be the path to the directory with the cli application, as the application name will be appended automatically.
+        /// The cli application location on Windows. Should be the path to the binary then a {0} where the file name would be so that it can be
+        /// inserted from the CliApplicationName.
         /// </summary>
         public static string WindowsCliApplicationLocation = "\"C:\\Program Files\\Windscribe\\{0}\"";
+
+        /// <summary>
+        /// The cli application location on Linux. Should be the path to the binary then a {0} where the file name would be so that it can be
+        /// inserted from the CliApplicationName.
+        /// </summary>
+        public static string LinuxCliApplicationLocation = "/opt/windscribe/{0}";
     }
 }

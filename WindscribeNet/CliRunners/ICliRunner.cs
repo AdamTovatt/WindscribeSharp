@@ -1,9 +1,9 @@
 ﻿using WindscribeNet.Commands;
 using WindscribeNet.Commands.ResponseParsing;
 
-namespace WindscribeNet.CommandRunners
+namespace WindscribeNet.CliRunners
 {
-    internal interface ICommandRunner
+    internal interface ICliRunner
     {
         Task<T> RunAsync<T>(Command command)
             where T : CommandResponse, IRawResponseConvertable<T>;

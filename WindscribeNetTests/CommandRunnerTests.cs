@@ -1,7 +1,8 @@
-using WindscribeNet.CommandRunners;
+using WindscribeNet.CliRunners;
 using WindscribeNet.Commands;
+using WindscribeNet.Enums;
 
-namespace WindscribeTests
+namespace WindscribeNetTests
 {
     [TestClass]
     public class CommandRunnerTests
@@ -9,10 +10,23 @@ namespace WindscribeTests
         [TestMethod]
         public async Task RunStatusCommand()
         {
-            ICommandRunner commandRunner = new WindowsCommandRunner();
+            ICliRunner cliRunner = CliRunnerProvider.Instance;
             Command statusCommand = new StatusCommand();
 
-            StatusCommandResponse result = await commandRunner.RunAsync<StatusCommandResponse>(statusCommand);
+            StatusCommandResponse result = await cliRunner.RunAsync<StatusCommandResponse>(statusCommand);
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(Enum.IsDefined(typeof(InternetConnectivity), result.InternetConnectivity));
+
+            Assert.IsNotNull(result.LoginState);
+            Assert.IsTrue(Enum.IsDefined(typeof(LoginStateType), result.LoginState.State));
+
+            Assert.IsTrue(Enum.IsDefined(typeof(FirewallState), result.FirewallState));
+
+            Assert.IsNotNull(result.ConnectState);
+            Assert.IsTrue(Enum.IsDefined(typeof(ConnectStateType), result.ConnectState.State));
+
+            Assert.IsTrue(result.DataUsage >= 0);
         }
     }
 }

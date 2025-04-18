@@ -1,14 +1,15 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using System.Diagnostics;
 using WindscribeNet.Commands;
 using WindscribeNet.Commands.ResponseParsing;
 
-namespace WindscribeNet.CommandRunners
+namespace WindscribeNet.CliRunners
 {
-    internal class WindowsCommandRunner : ICommandRunner
+    internal class LinuxCliRunner : ICliRunner
     {
         private string _filePath;
 
-        internal WindowsCommandRunner()
+        internal LinuxCliRunner()
         {
             _filePath = DefaultPaths.CliApplicationName;
         }
@@ -16,15 +17,15 @@ namespace WindscribeNet.CommandRunners
         public async Task<T> RunAsync<T>(Command command)
             where T : CommandResponse, IRawResponseConvertable<T>
         {
-            string? rawResponse = null;
+            string? rawResponse;
 
             try
             {
                 rawResponse = await RunInternalAsync(command);
             }
-            catch (Exception ex)
+            catch (Exception exception) when (exception is FileNotFoundException or Win32Exception)
             {
-                _filePath = string.Format(DefaultPaths.WindowsCliApplicationLocation, DefaultPaths.CliApplicationName);
+                _filePath = string.Format(DefaultPaths.LinuxCliApplicationLocation, DefaultPaths.CliApplicationName);
                 rawResponse = await RunInternalAsync(command);
             }
 
