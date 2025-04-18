@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using WindscribeNet.CliRunners;
 using WindscribeNet.Commands;
 using WindscribeNet.Enums;

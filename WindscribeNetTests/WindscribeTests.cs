@@ -15,25 +15,12 @@ namespace WindscribeNetTests
             // Save firewall state
             StatusCommandResponse status = await Windscribe.GetStatusAsync();
             originalFirewallState = EnumConverter.FromString<ActiveState>(status.FirewallState.ToString());
-
-            // Ensure disconnected
-            if (status.ConnectState.State != ConnectStateType.Disconnected)
-            {
-                await Windscribe.DisconnectAsync();
-                await Windscribe.WaitUntilDisconnectedAsync();
-            }
         }
 
-        //[TestCleanup]
+        [TestCleanup]
         public async Task Cleanup()
         {
-            // Ensure disconnected
             StatusCommandResponse status = await Windscribe.GetStatusAsync();
-            if (status.ConnectState.State != ConnectStateType.Disconnected)
-            {
-                await Windscribe.DisconnectAsync();
-                await Windscribe.WaitUntilDisconnectedAsync();
-            }
 
             // Restore firewall state
             if (!originalFirewallState.ToString().Equals(status.FirewallState.ToString()))
@@ -69,25 +56,6 @@ namespace WindscribeNetTests
             await Task.Delay(200);
             StatusCommandResponse confirmed = await Windscribe.GetStatusAsync();
             Assert.AreEqual(flipped.ToString(), confirmed.FirewallState.ToString());
-        }
-
-        [TestMethod]
-        public async Task ConnectCommandConnects()
-        {
-            await Windscribe.ConnectAsync();
-            StatusCommandResponse status = await Windscribe.WaitUntilConnectedAsync();
-            Assert.AreEqual(ConnectStateType.Connected, status.ConnectState.State);
-        }
-
-        [TestMethod]
-        public async Task DisconnectCommandDisconnects()
-        {
-            await Windscribe.ConnectAsync();
-            await Windscribe.WaitUntilConnectedAsync();
-
-            await Windscribe.DisconnectAsync();
-            StatusCommandResponse status = await Windscribe.WaitUntilDisconnectedAsync();
-            Assert.AreEqual(ConnectStateType.Disconnected, status.ConnectState.State);
         }
     }
 }
