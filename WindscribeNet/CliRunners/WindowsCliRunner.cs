@@ -52,13 +52,15 @@ namespace WindscribeNet.CliRunners
                 CreateNoWindow = true
             };
 
-            using Process process = new Process { StartInfo = startInfo };
-            process.Start();
+            using (Process process = new Process { StartInfo = startInfo })
+            {
+                process.Start();
 
-            string output = await process.StandardOutput.ReadToEndAsync();
-            await process.WaitForExitAsync();
+                string output = await process.StandardOutput.ReadToEndAsync();
+                await process.WaitForExitAsync();
 
-            return output;
+                return output;
+            }
         }
     }
 }

@@ -60,7 +60,7 @@ namespace WindscribeNetTests
 
             // Revert to original
             FirewallCommand revertCommand = new FirewallCommand(originalState);
-            FirewallCommandResponse revertResponse = await cliRunner.RunAsync<FirewallCommandResponse>(revertCommand);
+            await cliRunner.RunAsync<FirewallCommandResponse>(revertCommand);
 
             await Task.Delay(200);
 
