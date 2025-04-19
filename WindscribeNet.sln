@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindscribeNet", "Windscribe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindscribeNetTests", "WindscribeNetTests\WindscribeNetTests.csproj", "{E779AF7A-BDC4-46D2-9073-502FD1E1EDCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindscribeNetTestRunner", "WindscribeNetTestRunner\WindscribeNetTestRunner.csproj", "{A1D68FB5-BF2F-47E6-931E-C660DB268001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindscribeNetTestRunner", "WindscribeNetTestRunner\WindscribeNetTestRunner.csproj", "{A1D68FB5-BF2F-47E6-931E-C660DB268001}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
